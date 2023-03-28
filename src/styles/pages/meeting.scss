@@ -1,0 +1,24 @@
+.head {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.links {
+  margin: 10px 0;
+  height: 22px;
+}
+
+.grid {
+  width: 100%;
+  height: calc(100vh - 42px);
+  background: #333;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
+}

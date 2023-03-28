@@ -1,0 +1,12 @@
+//[id^="screen"],
+.screen {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+
+  background: #666;
+
+  canvas {
+    width: 100%;
+  }
+}

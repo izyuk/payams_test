@@ -14,10 +14,10 @@ export const Home = () => {
   }
 
   return (
-    <div>
+    <div className="home">
       <h1>Welcome at meeting app Home page.</h1>
 
-      <Link to={`meeting/${meetingId(3)}-${meetingId(3)}`}>Your Name</Link>
+      <Link to={`meeting/${meetingId(3)}-${meetingId(3)}`}>Join meeting</Link>
     </div>
   );
 }
