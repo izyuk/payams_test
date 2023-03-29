@@ -10,24 +10,16 @@ import {getVideoResource} from "../hooks/useVideo";
 
 export const MeetingRoom = ({numUsers}) => {
 
-  const [hlsInstance, setHlsInstance] = useState(null);
-
-
-  const usersCount = new Array(9).fill().map((e, i) => {
-    return {value: i + 1, label: i + 1}
-  });
-
   useEffect(() => {
     const hls = getVideoResource();
-    if (hls) {
-      setHlsInstance(hls);
-    } else {
+    if (!hls)
       console.warn('HLS is not supported by your browser');
-    }
+
+
     return () => {
-      if (hlsInstance) {
+      if (hls) {
         console.log('Free memory');
-        hlsInstance.destroy();
+        hls.destroy();
       }
     }
   }, [])
@@ -45,11 +37,10 @@ export const MeetingRoom = ({numUsers}) => {
         </nav>
       </div>
       <div className="grid">
-        <CameraPlayer usersCount={usersCount}/>
-        <CameraPlayer usersCount={usersCount}/>
-        <CameraPlayer usersCount={usersCount}/>
+        <CameraPlayer/>
+        <CameraPlayer/>
+        <CameraPlayer/>
       </div>
-
       <video id="video"/>
 
     </div>

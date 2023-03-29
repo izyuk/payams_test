@@ -4,25 +4,26 @@ import Select from 'react-select'
 
 import {Screen} from "./screen";
 
-export const CameraPlayer = ({usersCount}) => {
+export const CameraPlayer = ({meetingScreens}) => {
 
-  const [selectedUser, selectUser] = useState();
-  // const selectScreen = (e) => {
-  //   console.log(e.value)
-  //   // clearAllVideoSrcs();
-  //   // document.getElementById(`screen-${e.value}`).appendChild(document.getElementById('video'));
-  //   // getVideoResource(videoElement);
-  //   selectUser(e.value);
-  // }
+  const [screen, setScreen] = useState(null);
+
+  const usersList = new Array(9).fill().map((e, i) => {
+    return {value: i + 1, label: i + 1}
+  });
+  const screenHandler = (e) => {
+    console.log(e.value)
+    setScreen(e.value);
+  }
+
 
   return (
     <div className="camera">
-      <Screen/>
+      <Screen screen={screen} screensInTotal={usersList[usersList.length - 1].value}/>
+
       <div className="camera_screen_select">
         <label htmlFor="camera_screen_select">Show user</label>
-        {/*<Select options={usersCount} isSearchable={false}*/}
-        {/*      onChange={selectScreen}*/}
-        {/*      defaultValue={{value: 1, label: 1}}/>*/}
+        <Select options={usersList} onChange={screenHandler}/>
       </div>
     </div>
   )
