@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -6,9 +6,11 @@ import { CameraPlayer } from "../components/camera-player";
 
 import { getVideoResource } from "../heplers/video-helpers";
 import { Loader } from "../components/loader";
+import { ScreensAmount } from "../components/screens-amount";
+import { VideoContext } from "../context/video-context";
 
 export const MeetingRoom = ({ amountOfScreens }) => {
-  const [video, setVideo] = useState(null);
+  const { video, setVideo } = useContext(VideoContext);
   const [isReadyToPlay, updateReadinessToPlay] = useState(false);
 
   useEffect(() => {
@@ -45,14 +47,20 @@ export const MeetingRoom = ({ amountOfScreens }) => {
             </li>
           </ul>
         </nav>
+        <ScreensAmount />
       </div>
 
       {isReadyToPlay ? (
-        <div className="grid">
-          {[...Array(amountOfScreens)].map((item, i) => {
-            return <CameraPlayer key={i} isReadyToPlay={isReadyToPlay} />;
-          })}
-        </div>
+        <>
+          <div className="grid">
+            <h2>For better experience make sure you're selected correct stream layout</h2>
+            <div className="wrap">
+              {[...Array(amountOfScreens)].map((item, i) => {
+                return <CameraPlayer key={i} isReadyToPlay={isReadyToPlay} />;
+              })}
+            </div>
+          </div>
+        </>
       ) : (
         <Loader />
       )}

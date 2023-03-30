@@ -18,16 +18,23 @@ export const ScreensAmount = () => {
     { value: "4*4", label: "4x4" },
   ];
 
+  const defaultLayout = JSON.parse(localStorage.getItem("layout")) || {
+    value: "3*3",
+    label: "3x3",
+  };
+
   const layoutSelectHandler = (data) => {
+    localStorage.setItem("layout", JSON.stringify(data));
+    console.log(data);
     setScreenAmount(data.value);
   };
 
   return (
     <div className="layout">
-      <label htmlFor="layout_select">Select layout</label>
+      <label htmlFor="layout_select">Select incoming stream layout: </label>
       <Select
         options={grid}
-        defaultValue={{ value: "3*3", label: "3*3" }}
+        defaultValue={defaultLayout}
         onChange={layoutSelectHandler}
         isSearchable={false}
       />

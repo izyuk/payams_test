@@ -19,8 +19,22 @@
 
   display: flex;
   justify-content: center;
+  flex-direction: column;
   gap: 20px;
   align-items: center;
+
+  h2 {
+    color: #fff;
+    text-align: center;
+  }
+
+  .wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 }
 
 video {
