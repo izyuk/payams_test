@@ -5,9 +5,7 @@ import Select from 'react-select'
 import {Screen} from "./screen";
 
 export const CameraPlayer = () => {
-
   const [screen, setScreen] = useState(null);
-
 
   const usersList = new Array(9).fill().map((e, i) => {
     return {value: i + 1, label: i + 1}
@@ -15,7 +13,6 @@ export const CameraPlayer = () => {
   const screenHandler = (e) => {
     setScreen(e.value);
   }
-
 
   return (
     <div className="camera">

@@ -1,8 +1,8 @@
 import Hls from "hls.js";
-export const getVideoResource = () => {
 
-  const videoSrc = 'https://s138.lab.sgigs.com/HLS/playlist.m3u8';
-  const element = document.getElementById('video');
+export const getVideoResource = () => {
+  const videoSrc = "https://s138.lab.sgigs.com/HLS/playlist.m3u8";
+  const element = document.getElementById("video");
 
   if (Hls.isSupported()) {
     const hls = new Hls();
@@ -16,8 +16,7 @@ export const getVideoResource = () => {
     });
 
     return hls;
-
   } else {
-    return null
+    return null;
   }
-}
+};
