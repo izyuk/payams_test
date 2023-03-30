@@ -54,6 +54,10 @@ export const MeetingRoom = ({ amountOfScreens }) => {
         <>
           <div className="grid">
             <h2>For better experience make sure you're selected correct stream layout</h2>
+            <h3>
+              If the input layout is different from the selected one, it will cause the stream to be
+              clipped incorrectly
+            </h3>
             <div className="wrap">
               {[...Array(amountOfScreens)].map((item, i) => {
                 return <CameraPlayer key={i} isReadyToPlay={isReadyToPlay} />;
