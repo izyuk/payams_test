@@ -15,7 +15,7 @@ export const AppRouter = () => {
     <ScreensAmountContext.Provider value={screenAmountProvider}>
       <Routes>
         <Route path={"/"} element={<Home/>} errorElement={<NotFound/>}/>
-        <Route path={"/meeting/:meetingId"} element={<MeetingRoom numUsers={3}/>}/>
+        <Route path={"/meeting/:meetingId"} element={<MeetingRoom amountOfScreens={3}/>}/>
         <Route path={"*"} element={<NotFound/>}/>
       </Routes>
     </ScreensAmountContext.Provider>

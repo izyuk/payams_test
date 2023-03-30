@@ -17,8 +17,12 @@
   border-top-right-radius: 20px;
   padding: 20px;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 20px;
   align-items: center;
+}
+
+video {
+  display: none;
 }

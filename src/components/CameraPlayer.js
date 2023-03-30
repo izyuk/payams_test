@@ -1,18 +1,18 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 import Select from 'react-select'
 
 import {Screen} from "./screen";
 
-export const CameraPlayer = ({meetingScreens}) => {
+export const CameraPlayer = () => {
 
   const [screen, setScreen] = useState(null);
+
 
   const usersList = new Array(9).fill().map((e, i) => {
     return {value: i + 1, label: i + 1}
   });
   const screenHandler = (e) => {
-    console.log(e.value)
     setScreen(e.value);
   }
 

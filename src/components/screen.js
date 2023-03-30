@@ -34,40 +34,16 @@ export const Screen = ({screen, screensInTotal}) => {
     let sourceX, sourceY, sourceWidth, sourceHeight;
     let destinationX = 0, destinationY = 0;
     let destinationWidth = canvas.current.clientWidth;
-    let destinationHeight = canvas.current.clientWidth/1.33;
+    let destinationHeight = canvas.current.clientHeight;
 
     const rowsAndColumns = Math.sqrt(screensInTotal);
-
-    /**   y->j
-     * x-> i[123]
-     *      [456]
-     *      [789]
-     */
-
-    console.log("selected screen: ", screen)
-
     let inRow = Math.floor((screen - 1) / rowsAndColumns);
     let inColumn = Math.floor((screen - 1) % rowsAndColumns);
 
-    // console.log('In row: ', inRow);
-    // console.log('In Column: ', inColumn);
-    // console.log("maxRows: ", maxRows, "maxColumns: ", maxColumns)
-
-    console.log('screen: ', screen, "in row: ", inRow, "in column: ", inColumn);
-
-    sourceX = video.videoWidth * inColumn / rowsAndColumns ;
-    sourceY = video.videoHeight * inRow / rowsAndColumns ;
+    sourceX = video.videoWidth * inColumn / rowsAndColumns;
+    sourceY = video.videoHeight * inRow / rowsAndColumns;
     sourceWidth = video.videoWidth / rowsAndColumns;
     sourceHeight = video.videoHeight / rowsAndColumns;
-
-    console.log(sourceX,
-      sourceY,
-      sourceWidth,
-      sourceHeight,
-      destinationX,
-      destinationY,
-      destinationWidth,
-      destinationHeight);
 
     setCanvasParams({
       sourceX,
@@ -79,14 +55,18 @@ export const Screen = ({screen, screensInTotal}) => {
       destinationWidth,
       destinationHeight
     })
-
-    /**
-     * sx => videoWidth
-     * */
   }
 
   useEffect(() => {
-    if (video) cropHandler();
+    if (video) {
+      video.muted = false;
+    }
+  }, [screen])
+
+  useEffect(() => {
+    if (video) {
+      cropHandler();
+    }
   }, [screen, video])
 
   useEffect(() => {
@@ -94,13 +74,12 @@ export const Screen = ({screen, screensInTotal}) => {
     const context = canvas.current.getContext('2d');
     saveContext(context)
     setVideo(video);
-    console.log(screen)
   }, []);
 
 
   return (
     <div className='screen'>
-      <canvas ref={canvas}/>
+      <canvas ref={canvas} width={320} height={240}/>
     </div>
   )
 }
