@@ -1,5 +1,5 @@
 import Select from "react-select";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ScreensAmountContext } from "../context/screens-amount-context";
 
 /**
@@ -25,9 +25,12 @@ export const ScreensAmount = () => {
 
   const layoutSelectHandler = (data) => {
     localStorage.setItem("layout", JSON.stringify(data));
-    console.log(data);
     setScreenAmount(data.value);
   };
+
+  useEffect(() => {
+    setScreenAmount(defaultLayout.value);
+  }, []);
 
   return (
     <div className="layout">
