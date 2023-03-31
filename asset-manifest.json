@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/payams_test/static/css/main.7e56731e.css",
+    "main.js": "/payams_test/static/js/main.235a109b.js",
+    "static/js/787.80090798.chunk.js": "/payams_test/static/js/787.80090798.chunk.js",
+    "index.html": "/payams_test/index.html",
+    "main.7e56731e.css.map": "/payams_test/static/css/main.7e56731e.css.map",
+    "main.235a109b.js.map": "/payams_test/static/js/main.235a109b.js.map",
+    "787.80090798.chunk.js.map": "/payams_test/static/js/787.80090798.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e56731e.css",
+    "static/js/main.235a109b.js"
+  ]
+}
